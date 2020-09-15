@@ -12,4 +12,6 @@ Project Description:
 	integrate picture rotation with buttons so that it was easier to flip through
 	all the photographs.  Getting used to more dynamic interaction with the user
 	was what they project was about.  My last 2 pictures for grid garden and 
-	flex box froggy are there towards the end.   ottergram_improved
+	flex box froggy are there towards the end.  
+
+	project found here: https://github.com/aedanvalle/ottergram_improved
