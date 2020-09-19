@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- This project was built by Aedan Valle from CPSC 349 section 2-->
+<head>
+    <!--
+        Below are the settings for proper text for using utf-8 character encoding
+        for electronic communication.  
+    -->
+    <meta charset="UTF-8">
+
+    <!--
+        This is used for making all websites look good on all devices
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--the next 3 things are the tab name and  -->
+    <title>Ottergram</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+</head>
+<body>
+    <!-- this is the title of the website and shows across the top of the site like a banner -->
+    <header class="main-header">
+       <h1 class="logo-text">ottergram</h1> 
+    </header>
+
+    <!-- these are the pix that get displayed at the bottom of the site that are organized 
+            in a manner that reflect the order of the image files in the img folder.  
+            They are clickable that allows for rotating out images 
+            
+            THERE'S MORE CODE FOR TRANSITIONS FOR THE PICTURES IN [CHAPTER 7]-->
+    <main class="main-content">
+        <ul class="thumbnail-list">
+            <a href="img/otter1.jpg" data-image-role="trigger" data-image-title="Stayin' Alive" data-image-url="img/otter1.jpg">
+                <li class="thumbnail-item">
+                    <img class="thumbnail-image" src="img/otter1.jpg" alt="Barry the Otter">
+                    <span class="thumbnail-title">Barry</span>
+                </li>
+            </a>
+            <a href="img/otter2.jpg" data-image-role="trigger" data-image-title="How Deep Is Your Love"
+                data-image-url="img/otter2.jpg">
+                <li class="thumbnail-item">
+                    <img class="thumbnail-image" src="img/otter2.jpg" alt="Robin the Otter">
+                    <span class="thumbnail-title">Robin</span>
+                </li>
+            </a>
+            <a href="img/otter3.jpg" data-image-role="trigger" data-image-title="You Should be Dancing"
+                data-image-url="img/otter3.jpg">
+                <li class="thumbnail-item">
+                    <img class="thumbnail-image" src="img/otter3.jpg" alt="Maurice the Otter">
+                    <span class="thumbnail-title">Maurice</span>
+                </li>
+            </a>
+            <a href="img/otter4.jpg" data-image-role="trigger" data-image-title="Night Fever"
+                data-image-url="img/otter4.jpg">
+                <li class="thumbnail-item">
+                    <img class="thumbnail-image" src="img/otter4.jpg" alt="Lesley the Otter">
+                    <span class="thumbnail-title">Lesley</span>
+                </li>
+            </a>
+            <a href="img/otter5.jpg" data-image-role="trigger" data-image-title="To Love Somebody"
+                data-image-url="img/otter5.jpg">
+                <li class="thumbnail-item">
+                    <img class="thumbnail-image" src="img/otter5.jpg" alt="Barbara the Otter">
+                    <span class="thumbnail-title">Barbara</span>
+                </li>
+            </a>
+
+            <a href="img/otter6.jpg" data-image-role="trigger" data-image-title="FlexBox Froggy"
+                data-image-url="img/otter6.jpg">
+                <li class="thumbnail-item">
+                    <img class="thumbnail-image" src="img/otter6.jpg" alt="FlexBox Froggy">
+                    <span class="thumbnail-title">FlexBox </span>
+                </li>
+            </a>
+
+            <a href="img/otter7.jpg" data-image-role="trigger" data-image-title="Grid Garden"
+                data-image-url="img/otter7.jpg">
+                <li class="thumbnail-item">
+                    <img class="thumbnail-image" src="img/otter7.jpg" alt="Grid Garden">
+                    <span class="thumbnail-title">Grid Garden</span>
+                </li>
+            </a>
+        </ul>
+​
+        <div class="detail-image-container">
+
+            <!--this is the button that will rotate images to the right-->
+            <div>
+                <button onclick="switch_image('previous')"> &lt </button>
+            </div>
+
+            <!--this is the image that will be rotated out-->
+            <div class="detail-image-frame" data-image-role="frame">             
+
+                <img class="detail-image" data-image-role="target" , src="img/otter1.jpg" alt="">
+                <span class="detail-image-title" data-image-role="title">Stayin' Alive</span>                
+            </div>
+
+            <!--this is the button that will rotate images to the right-->
+            <div>
+                <button onclick="switch_image('next')"> &gt </button>
+            </div>
+
+            <!--this is the main function that is responsible for rotating out the main image that 
+                    is displayed in the center of the screen-->
+            <script>
+                var index = 0;
+                var beginning_half = 'img/otter', ending_half = '.jpg';
+                var pic_titles = ["Stayin' Alive", "HowDeep Is Your Love", "You Should Be Dancing", "Night Fever", "To Love Somebody", "Flexbox Froggy", "Grid Garden"];
+                
+                //this is the function that's responsible for rotating out the pictures
+                /*
+                    within this function, lies the algorithm for making sure tha the picture array
+                    doesn't go out of bounds.  
+                */
+                function switch_image(direction) {                    
+
+                    if (direction === 'next') {
+                        //make sure that the index doesn't go out of bounds
+                        if (index === 6 ) {
+                            index = -1;
+                        }
+                        index++; beginning_half += (index + 1); beginning_half += (ending_half);                        
+                        setDetails( beginning_half ,  pic_titles[index]);
+                    } else {
+                        //make sure that the index doesn't go out of bounds
+                        if (index === 0){
+                            index = 7;
+                        }
+                        index--; beginning_half += (index + 1); beginning_half += (ending_half);                        
+                        setDetails( beginning_half ,  pic_titles[index]);
+                    }
+                    beginning_half = 'img/otter';
+                }
+            </script>
+
+        </div>
+    </main>
+
+  
+    <!--this is where all the logic for displaying the image to the screen and was what we worked 
+            on in class-->
+    <script src="scripts/main.js" charset="utf-8"></script>
+</body>
+
+</html>

@@ -15,3 +15,5 @@ Project Description:
 	flex box froggy are there towards the end.  
 
 	project found here: https://github.com/aedanvalle/ottergram_improved
+	
+	**I worked on this project alone**

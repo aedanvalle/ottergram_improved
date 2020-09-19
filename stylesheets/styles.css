@@ -1,0 +1,162 @@
+
+/*
+  The two fonts below are used for logo text and reside in the fonts folder
+*/
+@font-face {
+  font-family: 'lakeshore';
+  src: url('fonts/LAKESHOR-webfont.eot');
+  src: url('fonts/LAKESHOR-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/LAKESHOR-webfont.woff') format('woff'),
+       url('fonts/LAKESHOR-webfont.ttf') format('truetype'),
+       url('fonts/LAKESHOR-webfont.svg#lakeshore') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+    font-family: 'lakeshore';
+    src: url('fonts/LAKESHOR-webfont.eot');
+    src: url('fonts/LAKESHOR-webfont.eot?#iefix') format('embedded-opentype'),
+        url('fonts/LAKESHOR-webfont.woff') format('woff'),
+        url('fonts/LAKESHOR-webfont.ttf') format('truetype'),
+        url('fonts/LAKESHOR-webfont.svg#lakeshore') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*
+  setting the height property of the document and the body
+*/
+html, body {
+  height: 100%;
+}
+
+/*more properties are added to just the body */
+body {
+  display: flex; /*the flexbox model declaration*/
+  flex-direction: column; /* the thumbnails will be configured in a horizontal fashion*/
+  font-size: 10px;/**/
+  background: rgb(149, 194, 215);/* this is the background color of text underneat each thumbnail which is light blue*/
+}
+
+/*this is the color of the links*/
+a[href='#'] {
+  text-decoration: none;/* do not give any of these elements text decorations*/
+}
+
+/*
+  flexbox settings for the website title at the top
+*/
+.main-header {
+  flex: 0 1 auto; /* the item is sized according to its width and height property     
+  header shrinks to it's minimum size to fit the container, 
+  but DOES NOT grow to absorb any extra free space in the flex container */
+}
+
+.main-content{
+  flex: 1 1 auto;/* the item is sized according to its width and height property
+  and grows to absorb any extra free space in the flex container, and shrinks to its minimum
+  size to fit the container  */
+  display: flex;/* the flexbox model declaration */
+  flex-direction: column;/* defines in which direction the container is to stack flex items (in columns) */
+}
+
+/* actual title text*/
+.logo-text {
+  background: white; /* */
+  text-align: center; /* place text in the middle of the container */
+  text-transform: uppercase; /* make this all uppercase */
+  font-family: lakeshore; /* fonts defined at the top*/
+  font-size: 4em; /* em is a relative measurement! */
+}
+
+/* i actually don't know what this is  */
+.thumbnail-item + .thumbnail-item { margin-top: 10px; }
+
+/* this is the main class that contains all the thumbnails at the bottom of the screen */
+.main-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* contains all the attributes the thumbnail list */
+.thumbnail-list {
+  flex: 0 1 auto;
+  order: 2; /* this reverses the order by 2  */
+  display: flex;
+  justify-content: space-between; /*  */
+  padding: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+/* contains all the attributes the thumbnail item */
+.thumbnail-item {
+  display: inline-block;
+  min-width: 120px;
+  max-width: 120px;
+  border: 1px solid rgb(100%, 100%, 100%, 0.8);
+  border: 1px solid rgba(100%, 100%, 100%, 0.8);
+
+  
+}
+
+.thumbnail-item:hover{
+  transform: scale(1.2);
+}
+
+/* this is just the individual images*/
+.thumbnail-image {
+  display: block; /* this means to show the content store at this space */
+  width: 100%;
+}
+
+/* text that pertains to the title  */
+.thumbnail-title {
+  display: block;
+  margin: 0;
+  padding: 0.4em 1em;
+  background: rgb(96, 125, 139);
+  color: rgb(202, 238, 255);
+  font-family: sans-serif;
+  font-size: 1.8em;
+}
+
+/* */
+.detail-image-container {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* THIS WAS ADDED */
+.detail-image-frame {
+  position: relative;
+  text-align: center;
+
+  transition: transform 1000ms  cubic-bezier(.17, .67, .83, .67);
+}
+
+/* */
+.detail-image {
+  width: 90%;
+}
+
+/* this is for the text that is displayed underneat the picture of the main otter*/
+.detail-image-title {
+  position: absolute;
+  bottom: -0.3em;
+  left: 0.4em;
+  font-family: airstreamregular;
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
+  font-size: 4em;
+}
+
+/* THIS WAS ADDED*/
+.is-tiny{
+  transform: scale(0.001);
+  transform: transform 300ms;
+}
+
